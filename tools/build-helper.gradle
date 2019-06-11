@@ -1,0 +1,25 @@
+ext.genVersion = {
+
+  Properties prop = new Properties()
+  prop.load(new FileInputStream(file("$project.rootDir/versions.properties")))
+
+  def major = prop['major'].toInteger()
+  def minor = prop['minor'].toInteger()
+  def patch = prop['patch'].toInteger()
+  def build = prop['build'].toInteger()
+
+  def verCode = (major * 1_000_000) + (minor * 10_000) + (patch * 100) + build
+  def verName = "${major}.${minor}.${patch}"
+
+  return [verCode, verName, build]
+}
+
+ext.getLastSHA = {
+  return 'git rev-parse --short=10 HEAD'.execute().text.trim()
+}
+
+ext.needFirebasePerf = { taskStr ->
+  def needToDisable = hasProperty('disableFirebasePerf') ||
+      ((taskStr.contains("Debug") || taskStr.contains("Deb")) && !taskStr.contains("DebugRelease"))
+  !needToDisable
+}
