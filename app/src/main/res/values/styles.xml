@@ -13,4 +13,11 @@
     <!--<item name="android:windowAnimationStyle">@style/dialog_animation_fade</item>-->
   </style>
 
+  <style name="AppTheme.NoActionBar" parent="AppTheme">
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowActionBar">false</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
+
 </resources>

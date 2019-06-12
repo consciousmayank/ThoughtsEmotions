@@ -12,8 +12,7 @@ public class CallQueue {
 
   private final ArraySet<CallObj> calls = new ArraySet<>();
 
-  @Nullable
-  CallObj remove(@NonNull Call call) {
+  @Nullable public CallObj remove(@NonNull Call call) {
     Preconditions.checkNotNull(call, "Call cannot be null");
     synchronized (calls) {
       Iterator<CallObj> iterator = calls.iterator();

@@ -147,6 +147,9 @@ dependencies {
     annotationProcessor "com.uber.nullaway:nullaway:$rootProject.nullawayVersion"
     errorprone "com.google.errorprone:error_prone_core:$rootProject.errorProneCoreVersion"
   }
+
+  annotationProcessor "com.uber:rave-compiler:$rootProject.raveVersion"
+  implementation "com.uber:rave:$rootProject.raveVersion"
 }
 //show as much as possible java warning, for errorprone
 gradle.projectsEvaluated {
